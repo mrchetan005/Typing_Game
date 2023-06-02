@@ -1,0 +1,92 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	width: 100%;
+	height: 100vh;
+	padding: 1rem;
+	display: grid;
+	font-family: monospace;
+	overflow: hidden;
+	background-color: #30113f;
+	transition: 0.5s ease-in-out;
+}
+
+h1 {
+	text-align: center;
+	color: rgb(255, 175, 78);
+	font-size: 2.5rem;
+	margin-block: 2rem 1rem;
+}
+
+h2 {
+	text-align: center;
+	font-size: 2rem;
+	color: azure;
+	margin-block: 1rem;
+}
+
+p {
+	text-align: center;
+	font-size: 1.3rem;
+	line-height: 1.7;
+}
+
+.correct {
+	color: green;
+	font-weight: 600;
+}
+
+.incorrect {
+	color: red;
+	text-decoration: underline;
+	font-weight: 600;
+}
+
+#container {
+	border: 1px solid black;
+	padding: 2rem 3rem;
+	min-width: 250px;
+	max-width: 1200px;
+	margin: auto;
+	cursor: pointer;
+	background-color: rgb(255, 175, 78);
+}
+
+#quote {
+	font-size: 1.7rem;
+	min-height: 10vh;
+}
+
+.timer__container {
+	width: 200px;
+	height: 150px;
+	margin: 0 auto 1rem;
+}
+
+#timer,
+.wpm {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 50%;
+	font-size: 2rem;
+	border-block: 1px solid rgb(255, 175, 78);
+	border-radius: 50%;
+	color: rgb(255, 175, 78);
+}
+
+#wpm {
+	margin-right: 7px;
+}
+
+.rules {
+	min-width: 250px;
+	max-width: 600px;
+	color: azure;
+	padding: 2rem 3rem;
+	margin: auto;
+}
