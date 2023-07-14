@@ -16,21 +16,25 @@ const getRandomQuote = (api) => fetch(api).then(res => res.json()).then(data => 
 
 // ? render new quote 
 async function renderNewQuote() {
-    quote = await getRandomQuote(apiUrl);
-    typedQuoteArray.length = 0;
-    characterSpanArray.length = 0;
-    quoteEl.innerHTML = '';
-    quote.split('').forEach(character => {
-        const characterSpan = document.createElement('span');
-        characterSpan.innerText = character;
-        quoteEl.appendChild(characterSpan);
-        characterSpanArray.push(characterSpan);
-    });
-    correctStrokes = 0;
-    document.body.backgroundColor = 'Green';
-    setTimeout(() => {
-        document.body.backgroundColor = '#30113f';
-    }, 100)
+    try {
+        quote = await getRandomQuote(apiUrl);
+        typedQuoteArray.length = 0;
+        characterSpanArray.length = 0;
+        quoteEl.innerHTML = '';
+        quote.split('').forEach(character => {
+            const characterSpan = document.createElement('span');
+            characterSpan.innerText = character;
+            quoteEl.appendChild(characterSpan);
+            characterSpanArray.push(characterSpan);
+        });
+        correctStrokes = 0;
+        document.body.backgroundColor = 'Green';
+        setTimeout(() => {
+            document.body.backgroundColor = '#30113f';
+        }, 100);
+    } catch (err) {
+        console.log(err);
+    }
 }
 renderNewQuote();
 
@@ -63,12 +67,13 @@ function reset() {
 
 // ? useless key pressed
 function uselessKeyPressed(currentChar) {
-    currentChar === 'Shift' || currentChar === 'CapsLock' || currentChar === 'Tab' || currentChar === 'Enter' || currentChar === 'Control' || currentChar === 'Meta' || currentChar === 'Alt' || currentChar === 'AltGraph'
+    return currentChar === 'Shift' || currentChar === 'CapsLock' || currentChar === 'Tab' || currentChar === 'Enter' || currentChar === 'Control' || currentChar === 'Meta' || currentChar === 'Alt' || currentChar === 'AltGraph'
 }
 
 // ? handle keydown event
 function handleKeydownEvent(e) {
     e.preventDefault();
+    console.log(e.key);
     if (uselessKeyPressed(e.key)) return;
 
     const currentChar = e.key,
