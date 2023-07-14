@@ -1,7 +1,7 @@
 'use strict';
 
 // ! =========== Variables ===========
-const apiUrl = 'http://api.quotable.io/random',
+const apiUrl = 'https://api.quotable.io/random',
     containerEl = document.getElementById('container'),
     timerEl = document.getElementById('timer'),
     quoteEl = document.getElementById('quote'),
